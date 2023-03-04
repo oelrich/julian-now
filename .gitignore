@@ -2,4 +2,5 @@
 .cpcache
 .lsp
 .portal
+.vscode
 target
