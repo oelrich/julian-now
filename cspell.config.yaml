@@ -3,7 +3,8 @@ ignorePaths: []
 dictionaryDefinitions: []
 dictionaries: []
 words:
+  - cljc
+  - Clojars
   - currentTimeMillis
   - slipset
-  - cljc
 import: []

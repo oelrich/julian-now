@@ -13,11 +13,12 @@
 
 (defn ^:export jar [_]
   (clean nil)
-  (b/write-pom {:class-dir class-dir
+  (b/write-pom {:basis basis
                 :lib lib
                 :version version
-                :basis basis
-                :src-dirs ["src"]})
+                :scm {:url "https://github.com/oelrich/julian-now"}
+                :src-dirs ["src"]
+                :class-dir class-dir})
   (b/copy-dir {:src-dirs ["src"]
                :target-dir class-dir})
   (b/jar {:class-dir class-dir
