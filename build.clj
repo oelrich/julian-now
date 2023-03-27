@@ -16,7 +16,11 @@
   (b/write-pom {:basis basis
                 :lib lib
                 :version version
-                :scm {:url "https://github.com/oelrich/julian-now"}
+                :scm
+                {:url "https://github.com/oelrich/julian-now"
+                 :connection "scm:git:git://github.com/oelrich/julian-now.git"
+                 :developerConnection "scm:git:ssh://git@github.com/oelrich/julian-now.git"
+                 :tag version}
                 :src-dirs ["src"]
                 :class-dir class-dir})
   (b/copy-dir {:src-dirs ["src"]
