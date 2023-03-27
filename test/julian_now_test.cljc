@@ -6,6 +6,12 @@
   (testing "Get an Unix epoch timestamp"
     (is (> (jn/unix-epoch-now-ts) 1677917143977))))
 
+(deftest there-and-back-again-test
+  (testing "The timestamp should be the timestamp after roundtrip"
+    (is (= 1677917143977
+           (jn/to-unix-epoch-ts
+            (jn/from-unix-epoch-ts 1677917143977))))))
+
 (deftest from-unix-epoch-ts-test
   (testing "Calculate the julian date at some Unix epoch timestamps"
     (is (= (jn/from-unix-epoch-ts 0)

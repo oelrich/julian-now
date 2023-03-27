@@ -10,22 +10,24 @@
   "The number of julian days at Unix Timestamp 0. Expressed as a floating point number."
   (double julian-day-at-unix-epoch-ratio))
 
+(defn ^:export to-unix-epoch-ts [jd-ut]
+  (long
+   (* (- jd-ut julian-day-at-unix-epoch-ratio)
+      milli-seconds-in-a-day)))
+
 (defn ^:export from-unix-epoch-ts-exact
   "The julian day with universal time for a given Unix Timestamp expressed as a ratio."
-  [ts]
-  (+   (/ ts milli-seconds-in-a-day)
-       julian-day-at-unix-epoch-ratio))
+  [ts] (+ (/ ts milli-seconds-in-a-day)
+          julian-day-at-unix-epoch-ratio))
 
 (defn ^:export from-unix-epoch-ts
   "The julian day with universal time for a given Unix Timestamp expressed as a floating point number."
-  [ts]
-  (double (from-unix-epoch-ts-exact ts)))
+  [ts] (double (from-unix-epoch-ts-exact ts)))
 
 (defn unix-epoch-now-ts
   "Current Unix epoch offset."
-  []
-  #?(:cljs (.now js/Date)
-     :clj (System/currentTimeMillis)))
+  [] #?(:cljs (.now js/Date)
+        :clj (System/currentTimeMillis)))
 
 (defn ^:export now
   "Julian day and universal time at the current moment."

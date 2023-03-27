@@ -1,7 +1,9 @@
 {:paths ["src"]
  :deps {}
  :aliases
- {:test
+ {:dev
+  {:extra-paths ["test"]}
+  :test
   {:extra-paths ["test"]
    :extra-deps
    {lambdaisland/kaocha {:mvn/version "1.80.1274"}}

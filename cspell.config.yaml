@@ -6,5 +6,6 @@ words:
   - cljc
   - Clojars
   - currentTimeMillis
+  - mapv
   - slipset
 import: []
